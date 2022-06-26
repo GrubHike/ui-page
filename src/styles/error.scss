@@ -1,0 +1,16 @@
+@import "./common.scss";
+.error{
+    @include flex(column,center,center);
+    @include dim(100%,100vh);
+    a{
+        text-decoration: none;
+        color:white;
+        background-color: $highlight;
+        padding:5px 10px 5px 10px;
+        border-radius: 5px;
+        &:hover{
+            opacity:0.8;
+        }
+    }
+
+}

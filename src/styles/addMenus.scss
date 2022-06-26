@@ -1,0 +1,132 @@
+@import "./common.scss";
+.addMenus{
+    @include dim(100%,auto);
+    margin:0px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    padding:20px;
+    p{
+        padding:0px;
+        margin:0px;
+        font-size: 0.8rem;
+    }
+    h2{
+        padding:0px;
+        margin:0px;
+        button{
+            background-color: $highlight;
+            color:white;
+            border-radius: 100%;
+            font-family: "Poppins","sans-serif";
+            font-size: 1.5rem;
+            border:none;
+            outline:none;
+            width:40px;
+            font-weight: bolder;
+            height:40px;
+            margin-left: 10px;
+            cursor: pointer;
+
+            &:hover{
+                opacity:0.8;
+            }
+        }
+    }
+    .dflex{
+        @include dim(100%,auto);
+        @include flex(row,center,space-between);
+        .totalMenus{
+            font-size: 1rem;
+       
+        }
+    }
+    .menus{
+        @include flex(row,center,flex-start);
+        flex-wrap: wrap;
+        @include dim(100%,auto);
+        gap:20px;
+        transition:height 1s ease;
+
+        .imgLoader{
+            @include flex(row,center,center);
+            @include dim(100%,300px);
+            font-family: "Poppins","sans-serif";
+            font-weight: bolder;
+            font-size:0.9rem;
+            color:$highlight;
+            img{
+                @include dim(50px,50px);
+            }
+        }
+        .menuItem{
+            @include dim(300px,auto);
+            transition:1s ease;
+            background-color:$highlight;
+            border-radius: 5px;
+            overflow:hidden;
+            color:white;
+            @include flex(column,flex-start,center);
+            .imgBox{
+                @include dim(100%,200px);
+                @extend .backs;
+                background-image: url("./../assets/defaultMenu.png");
+                @include flex(row,flex-start,flex-end);
+                button{
+                    margin-top: 10px;
+                    margin-right: 10px;
+                    width:35px;
+                    height: 35px;
+                    outline:none;
+                    border:none;
+                    cursor: pointer;
+                    background-color:$highlight;
+                    svg{
+                        color:white;
+                        width:20px;
+                        height:20px;
+                    }
+                    border-radius: 100%;
+                    &:hover{
+                        opacity:0.8;
+                    }
+                }
+            }
+
+            .menuData{
+                @include dim(100%,auto);
+                @include flex(column,flex-start,center);
+                @extend .defs;
+                padding:5px;
+                color:white;
+
+                small,.np{
+                    @extend .defs;
+                    color:white;
+                }
+                .np{
+                    @include dim(100%,auto);
+                    @include flex(row,center,space-between);
+                    .menuName{
+
+                    }
+                    .price{
+
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width:872px){
+            .menuItem{
+                width:40vw;
+            }
+        }
+        @media screen and (max-width:772px){
+            .menuItem{
+                width:100vw;
+            }
+        }
+
+
+    }
+}

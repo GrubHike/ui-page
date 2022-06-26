@@ -1,0 +1,104 @@
+@import "./common.scss";
+
+.signup{
+    overflow:hidden;
+    @include dim(100%,130vh);
+    @include flex(row,center,space-between);
+
+    .signup-left{
+        @include dim(60%,100%);
+    
+        background-color: $skeletonColor;
+        background-image: url("./../assets/signup.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .signup-right{
+        padding:20px;
+        @include dim(40%,100%);
+        @include flex(column,flex-start,none);
+        h5{
+            margin:0px;
+            padding:0px;
+        }
+        form{
+            @include dim(100%,auto);
+            @include flex(column,flex-start,none);
+
+            .quotes{
+                width:60%;
+                color:gray;
+                font-size: 0.7rem;
+            }
+            .field{
+                @include dim(80%,40px);
+                @extend .inputOuts;
+                border:0.5px solid lightgray;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                padding-left: 5px;
+                font-size:0.8rem;
+
+                font-family: 'Poppins','sans-serif';
+                &:focus{
+                   border:1px solid $highlight;
+                }
+            }
+
+            .radios{
+                @include dim(100%,auto);
+                margin-bottom: 10px;
+                @include flex(row,center,flex-start);
+                span{
+                    margin-right: 10px;
+                    font-size: 0.9rem;
+                }
+            }
+            .btn{
+                background-color:$highlight;
+                color:white;
+                font-size: 0.8rem;
+                padding-left:0px;
+                margin-left:5px;
+                cursor: pointer;
+                font-weight: bolder;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+            .dont{
+                font-size: 0.7rem;
+                a{
+                    text-decoration: none;
+                    color:$highlight;
+                }
+            }
+           
+        }
+    }
+}
+
+@media screen and (max-width:702px){
+    .signup{
+        justify-content: center;
+        .signup-left{
+            display: none;
+        }
+
+        .signup-right{
+       
+            width:100%;
+            @include flex(column,flex-start,center);
+            form{
+                width:100%;
+                .field{
+                    width:97%;
+                }
+                .quotes{
+                    width:90%;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,174 @@
+@import "./common.scss";
+.imgBack{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.whileLoad{
+    filter: blur(3px);
+}
+.load{
+    filter:none;
+}
+.dx{
+    color:$highlight;
+    padding:0px;
+    margin:0px;
+}
+
+.viewKitchen{
+    @include dim(100%,100vh);
+    @include flex(column,flex-start,none);
+    padding:10px 10px 0px 10px;
+    box-sizing: border-box;
+    h2,p{
+        padding:0px;
+        margin:0px;
+        padding-bottom: 4px;
+    }
+
+    .imagesCorner{
+        @include dim(100%,auto);
+
+        @include flex(column,center,center);
+        box-sizing: border-box;
+
+        .topImg{
+
+            @extend .imgBack;
+            @include dim(100%,auto);
+            border-radius: 10px;
+            min-height: 300px;
+            margin-bottom: 10px;
+            background-color: rgba(211, 211, 211, 0.507);
+            .detailskit{
+                @include dim(100%,100%);
+                @include flex(column,flex-start,flex-start);
+                box-sizing: border-box;
+                padding:10px;
+                background-color: $highlight;
+                opacity: 0.9;
+                clip-path: circle(50% at 0% 0%);
+                transition:1s ease;
+
+                .about{
+                    padding:5px;
+                    margin:0px;
+                    width:50%;
+                    box-sizing: border-box;
+                    color:white;
+
+                    svg{
+                        color:white;
+                    }
+                }
+                .aboutDesc{
+                    color:white;
+                    box-sizing: border-box;
+                    padding:10px;
+                    margin:0px;
+                    margin:0px;
+                    width:50%;
+
+                }
+                a{
+                    color:$highlight;
+                    background-color: white;
+                    padding:5px;
+                    margin:0px;
+                    width:auto;
+                    font-weight: bolder;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    @include flex(row,center,center);
+                    svg{margin-left:5px;}
+                }
+                @media screen and (max-width:500px){
+                    .about,.aboutDesc{
+                        width:100%;
+                    }
+                }
+            }
+            &:hover .detailskit{
+                @include dim(100%,100%);
+                clip-path: circle(80% at 0% 0%);
+                transition:1s ease;
+                opacity:1;
+                @media screen and (max-width:500px){
+                clip-path: circle(100%);
+                   
+                }
+
+            }
+         
+        }
+
+
+
+        .btmImgs{
+            @include dim(100%,auto);
+            @include flex(row,center,space-between);
+            .leftImg,.rightImg{
+                @extend .imgBack;
+                @include dim(49%,230px);
+                border-radius: 10px;
+                background-color: rgba(211, 211, 211, 0.507);
+               
+            }
+            @media screen and (max-width:450px){
+                flex-wrap: wrap;
+                flex-direction: column;
+                .leftImg,.rightImg{
+                    @include dim(100%,240px);
+
+                }
+            }
+            
+        }
+    }
+
+    .extraDetails{
+        @include dim(100%,auto);
+        box-sizing: border-box;
+
+        .detailsSocials{
+            @include dim(100%,auto);
+            @include flex(row,center,space-between);
+            .kit-name{
+                width:50%;
+            }
+            ul{
+                list-style: none;
+                
+                @include dim(50%,auto);
+                @include flex(row,center,flex-end);
+                gap:10px;
+                li{
+                    a{
+                        color:$highlight;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .kitDesc{
+            font-weight: lighter;
+        }
+
+        .tims{
+            @include dim(100%,auto);
+
+            @include flex(row,flex-start,space-between);
+            .d1,.d2{
+                @include dim(50%,auto);
+            }
+            .d2{
+                @include flex(column,flex-end,center);
+            }
+            .dm{
+                font-weight: lighter;
+
+            }
+        }   
+    }
+}

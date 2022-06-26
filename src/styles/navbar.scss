@@ -1,0 +1,165 @@
+@import "./common.scss";
+.navbar-outer{
+    @include dim(100%,50px);
+
+    position: fixed;
+    z-index: 100;
+    top:0px;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    @include flex(column,flex-start,space-between);
+
+    .navbar{
+    
+        @include dim(100%,90%);
+        
+        @include flex(row,center,flex-end);
+        .navbar-left{
+            margin-left: 20px;
+            float: left;
+            width:100%;
+            @include flex(row,center,none);
+        }
+        .navbar-right{
+            @include dim(max-content,100%);
+            @include flex(row,center,space-around);
+
+            .corners{
+                @include dim(auto,auto);
+                @include flex(row,center,flex-start);
+                padding-right: 10px;
+                .profileLogo{
+                    @include dim(30px,30px);
+                    border-radius: 100%;
+                    border: 0.5px solid $highlight;
+                    object-fit: cover;
+                }
+                .logout{
+                    @extend .inputOuts;
+                    margin-right: 15px;
+    
+                    padding:5px 15px 5px 15px;
+                    background-color: $highlight;
+                    color:white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    &:hover{
+                        opacity:0.8;
+                    }
+                }
+            }
+         
+            a{
+                text-decoration: none;
+                font-size: 0.8rem;
+                margin-right: 20px;
+
+                @include flex(row,center,flex-start);
+                color:rgba(128, 128, 128, 0.637);
+                p{
+                    color:rgba(128, 128, 128, 0.637);
+                    font-weight: lighter;
+
+                }
+                span{
+                    margin-right: 5px;
+                }
+                span,svg{
+                    width:20px;
+                    height:20px;
+                    font-weight: lighter;
+                    
+                }
+                &:hover{
+                    opacity:0.8;
+                }
+            }
+  
+
+            @media screen and (max-width:476px){
+    
+               
+                    height:auto;
+                    flex-direction: column;
+                    align-items:flex-start;
+
+                    a{
+                        p{
+                            display:block !important;
+                        }
+                    }
+                    
+                    .corners{
+                        width:90%;
+                        justify-content:space-between;
+                        padding-bottom: 5px;
+                        padding-right: 0px;
+                    }
+                
+                        
+             
+            
+            }
+        }
+
+      
+  
+        @media screen and (max-width:1053px){
+            .navbar-right{
+                a{
+                  
+                    p{
+                        display:none;
+                    }
+                }
+            }
+        }
+
+    }
+    
+    .progressBar{
+        width:0%;
+        height:3px;
+        background-color: $highlight;
+        transition: width 1s ease;
+    }
+}
+.menuBtn{
+    background-color: white;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    margin-right:10px;
+    display:none;
+    &:hover{
+        opacity:0.5;
+    }
+}
+
+@media screen and (max-width:650px){
+    .navbar-outer{
+        height:auto;
+        .navbar{
+            @include flex(column,flex-start,center);
+            .navbar-left{
+                width:100%;
+                justify-content:space-between;
+            }
+            .navbar-right{
+                margin-left: 20px;
+                width:100%;
+                justify-content: flex-start;
+                display:flex ;
+            }
+            
+            .menuBtn{
+                display:block;
+                margin-right:20px;
+
+            }
+        }
+        
+    }
+
+}
+

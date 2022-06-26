@@ -1,0 +1,96 @@
+@import "./common.scss";
+.createMenu{
+    @include dim(300px,auto);
+    background-color: white;
+    border-radius: 5px;
+    @include flex(column,flex-start,none);
+    padding:10px;
+    h4{
+        @extend .defs;
+        font-weight: bolder;
+    }
+
+    .addImages{
+        @include dim(100%,auto);
+        button{
+            border-radius: 5px;
+            text-align: center;
+            @include dim(100%,30px);
+            font-size: 1.5rem;
+            opacity:0.3;
+            background-color:$highlight;
+            color:white;
+            border:none;
+            outline:none;
+            cursor: pointer;
+            &:hover{
+                opacity:0.8;
+            }
+        }
+
+        .displayImageArea{
+            @include dim(100%,auto);
+            @include flex(row,center,space-between);
+            gap:10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            overflow-y: scroll;
+            max-height: 70px;
+            .choosenImage{
+                width:48%;
+                height:70px;
+                border-radius: 5px;
+                object-fit: cover;
+                object-position: center;
+
+            }
+        }
+    }
+
+    form{
+        @include dim(100%,auto);
+        @include flex(column,flex-start,center);
+        .field-menu{
+            @include dim(97%,35px);
+            @extend .inputOuts;
+            border:0.5px solid lightgray;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding-left: 5px;
+            box-sizing: border-box;
+            font-size:0.8rem;
+            font-family: 'Poppins','sans-serif';
+            &:focus{
+               border:1px solid $highlight;
+            }
+        }
+        .desc{
+            max-height:50px;
+            resize: none;
+            
+        }
+        .place,.types{
+            @include dim(100%,auto);
+            @include flex(row,center,space-between);
+        }
+        .btnSub{
+            @include dim(100%,30px);
+            background-color:$highlight;
+            font-family: "Poppins","sans-serif";
+            color:white;
+            border:none;
+            outline:none;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover{
+                opacity:0.8;
+            }
+        }
+        
+    }
+}
+
+small{
+    font-weight: bolder;
+    color:$highlight;
+}

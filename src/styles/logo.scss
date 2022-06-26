@@ -1,0 +1,8 @@
+@import "./common.scss";
+p{
+    color:black;
+    font-weight: bolder;
+    strong{
+        color:$highlight;
+    }
+}

@@ -1,0 +1,196 @@
+@import "./common.scss";
+$wid:180px;
+.guestProfile{
+    @include dim(100%,auto);
+    @include flex(row,center,flex-start);
+    
+    .guestProfile-left{
+        padding-top: 20px;
+        @include dim(250px,100vh);
+        @include flex(column,center,none);
+        border-right: 0.5px solid rgba(218, 218, 218, 0.555);
+        .imageMenu{
+            @include dim($wid,$wid);
+            border-radius: 100%;
+            
+            background-color: lightgray;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            @include flex(column,flex-end,flex-end);
+            .addPicBtn{
+                border-radius: 100%;
+                outline:none;
+                border:none;
+                cursor: pointer;
+                width:35px;height:35px;
+                font-weight: bolder;
+                font-size: 1rem;
+                background-color:$highlight;
+                color: white;
+                margin: 0px 15px 15px 0px;
+                border: 4px solid white;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+        }
+        .updatePicBtn{
+            @include dim(auto,35px);
+            margin-top: 20px;
+            cursor: pointer;
+            padding: 0px 10px 0px 10px;
+            border: 1px solid $highlight;
+            text-transform: capitalize;
+            background-color: white;
+            color:$highlight;
+            font-weight: bolder;
+            border-radius: 5px;
+            transition: 1s ease;
+
+            &:hover{
+                background-color: $highlight;
+                color:white;
+                transition: 1s ease;
+            }
+        }
+        .userName{
+            padding:5px;
+            width:$wid+20px;
+            margin:0px;
+            border-bottom: 0.1px solid rgba(211, 211, 211, 0.479);
+
+        }
+        .desc{
+            padding:10px;
+            margin:0px;
+            color:gray;
+            width:$wid;
+            font-size: 0.8rem;
+            border-bottom: 0.1px solid rgba(211, 211, 211, 0.479);
+
+        }
+
+        .socialHandles{
+            @include flex(row,center,flex-start);
+            list-style: none;
+            @include dim(80%,auto);
+            padding:0px;
+            li{
+                margin-left: 5px;
+                a{
+                    text-decoration: none;
+                    color: $highlight;
+                }
+            }
+            border-bottom: 0.1px solid rgba(211, 211, 211, 0.479);
+
+
+        }
+
+        .hobbies{
+            @include dim(80%,auto);
+            padding:0px;
+
+            list-style: none;
+            @include flex(row,center,flex-start);
+            flex-wrap: wrap;
+            li{
+                margin-left: 5px;
+
+                font-size: 0.7rem;
+            }
+         
+        }
+
+        small{
+            align-self: center;
+            width:$wid;
+            font-size: 0.6rem;
+            
+        }
+        
+    }
+
+    .guestProfile-right{
+        
+        padding:10px;
+        @include dim(100%,100vh);
+
+
+        form{
+            @include dim(100%,auto);
+            @include flex(column,flex-start,none);
+            .editx{
+                padding:0px;
+                margin:0px;
+            }
+            .slogan{
+                font-weight: lighter;
+                color:gray;
+            }
+            .slogan2{
+                font-weight: bolder;
+                font-size: 0.8rem;
+                color:$highlight;
+            }
+            
+            .socialHandlesEdit{
+                @include dim(100%,auto);
+                @include flex(row,center,space-between);
+                flex-wrap:wrap;
+                input{
+                    @include dim(auto,40px);
+                    @media screen and (max-width:615px){
+                        @include dim(100%,40px);
+                    }
+                }
+            }
+            .fieldx{
+                border:0.1px solid rgba(128, 128, 128, 0.267);
+                @include dim(100%,40px);
+                padding:0px;
+                margin:0px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                padding-left:5px;
+                border-radius: 5px;
+                outline:none;
+                &:focus{
+                border:1px solid $highlight;
+                    
+                }
+            }
+            .descx{
+             resize: none;
+             padding-top: 5px;
+             height:100px;   
+            }
+            .btn{
+                background-color: $highlight;
+                color:white;
+                font-weight: bolder;
+                cursor: pointer;
+                &:hover{
+                    opacity:0.8;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (max-width:505px){
+        overflow:hidden;
+        @include flex(column,center,center);
+        .guestProfile-left{
+            @include dim(100%,auto);
+            small,.desc,.socialHandles,.hobbies,.userName{
+                @include dim(90%,auto);
+            }
+        }
+        .guestProfile-right{
+            @include dim(90%,auto);
+
+        }
+    }
+}

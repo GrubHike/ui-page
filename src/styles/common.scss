@@ -1,0 +1,71 @@
+$skeletonColor:rgba(235, 235, 235, 0.719);
+$highlight:#006FFE;
+.active{
+    color:black !important;
+    p{
+        color:black !important;
+        font-weight: bolder !important;
+    }
+}
+
+.defs{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.red{
+    color:red;
+    font-weight: bolder;
+    margin-block: auto;
+}
+.backs{
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+@mixin  dim($w,$h) {
+    width:$w;
+    height:$h;
+}
+@mixin flex($dir,$al,$js){
+    display:flex;
+    flex-direction: $dir;
+    align-items: $al;
+    justify-content: $js;
+}
+.inputOuts{
+    outline:none;
+    border:none;
+}
+.loadSpinner{
+    width:25px;
+    height:25px;
+}
+.spanner{
+    @include flex(row,center,none);
+    font-size: 0.8rem;
+    font-weight: bolder;
+}
+.flexRow{
+    @include flex(row,center,flex-start);
+}
+.commonBtn{
+    color:white;
+    border:none;
+    outline:none;
+    background-color: $highlight;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        opacity:0.8;
+    }
+}
+.disableBtn{
+    cursor: none;
+    background-color: rgba(128, 128, 128, 0.507);
+    border:1px solid gray;
+}
+.highLight{
+    color:$highlight !important;
+    font-weight: bolder !important;
+}

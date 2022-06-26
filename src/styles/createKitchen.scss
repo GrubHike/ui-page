@@ -1,0 +1,88 @@
+@import "./common.scss";
+.createKitchen{
+    @include dim(100%,auto);
+    @include flex(column,flex-start,none);
+    padding:10px 10px 0px 10px;
+    box-sizing: border-box;
+
+    h2,p{
+        padding:0px;
+        margin:0px;
+        padding-bottom: 4px;
+    }
+    p{
+        font-weight: lighter;
+        font-size: 0.9rem;
+    }
+    form{
+        @include dim(100%,auto);
+        @include flex(column,flex-start,none);
+    
+        .fieldc{
+            border:0.3px solid rgba(128, 128, 128, 0.267);
+            @include dim(100%,40px);
+            padding:0px;
+            margin:0px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            padding-left:5px;
+            border-radius: 5px;
+            outline:none;
+            &:focus{
+                border:1px solid $highlight;
+            }
+        }
+        .help{
+            color:$highlight;
+            font-weight: bolder;
+        }
+        .kitchenSocialHandles{
+            @include dim(100%,auto);
+            flex-wrap: wrap;
+            @include flex(row,center,space-between);
+            input{
+                width:20%;
+                gap:10px;
+                padding-left:5px;
+                padding-right:5px;
+                @media screen and (max-width:450px) {
+                    width:100%;
+                }
+            }
+        }
+        .mealTime{
+            @include dim(100%,auto);
+            @include flex(row,center,space-between);
+            flex-wrap: wrap;
+            span{
+                @include dim(47%,auto);
+                @include flex(column,flex-start,none);
+                gap:10px;
+             
+            }
+        }
+        .foodType{
+            @include dim(100%,auto);
+        }
+        textarea{
+            resize: none;
+            padding-top: 10px !important;
+            padding-left:5px !important;
+            padding-right:5px !important;
+            height:100px !important;   
+        }
+
+        button{
+            background-color: $highlight;
+            color:white;
+            font-family: "Poppins","sans-serif";
+            font-weight: bolder;
+            cursor: pointer;
+            &:hover{
+                opacity:0.8;
+            }
+        }
+    }
+
+
+}

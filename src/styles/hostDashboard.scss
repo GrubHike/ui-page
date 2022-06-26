@@ -1,0 +1,98 @@
+@import "./common.scss";
+.hostDashboard{
+    @include dim(100%,auto);
+    @include flex(column,flex-start,none);
+
+    .hostDashboard-top{
+        @include dim(100%,350px);
+        overflow: hidden;
+        background-image: url("./../../src/assets/cooking.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        @include flex(row,center,flex-start);
+        .lefti{
+            // margin-left: 10px;
+            @include dim(100%,100%);
+            @include flex(column,flex-start,center);
+            background-color: #006efe54;
+
+            padding:10px;
+            h1,p{
+                padding:0px;
+                margin:0px;
+                color:white;
+            }
+
+            h1{
+                font-weight: bolder;
+            }
+            span{
+                color:$highlight;
+                border-bottom: 2px solid orange;
+            }
+
+            .steps{
+                padding:5px;
+                margin:0px;
+                list-style:none;
+                @include flex(row,center,flex-start);
+                color: white;
+                font-weight: bolder;
+                border-radius: 5px;
+                li{
+                    font-size: 0.9rem;
+                    @include flex(row,center,space-between);
+                    &::after{
+                        content:"\21E2";
+                        display:block;
+                        width: 50px;height:50px;
+                        color:orange;
+                        font-size: 30px !important;
+                        font-weight: bolder;
+                        margin-left: 15px;
+                    }
+                    &:nth-child(3)::after{
+                        display: none;
+                    }
+                    @media screen and (max-width:360px) {
+                       
+                            font-size:0.7rem;
+                        
+                    }
+                }
+
+                
+
+                
+            }
+        
+        }
+    }
+    .steps{
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+        @include dim(100%,auto);
+        @include flex(row,center,space-between);
+        .btns{
+            button{
+                margin-left: 10px;
+                @extend .commonBtn;
+            }
+        }
+    }
+    
+}
+
+.imgLoader{
+    @include flex(row,center,center);
+    @include dim(100%,300px);
+    font-family: "Poppins","sans-serif";
+    font-weight: bolder;
+    font-size:0.9rem;
+    color:$highlight;
+    img{
+        @include dim(50px,50px);
+    }
+}

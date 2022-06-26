@@ -1,0 +1,11 @@
+@import "./common.scss";
+.modalContainer{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.582);
+    @include dim(100%,auto);
+    min-height:100vh;
+    max-height:150vh;
+    top:0px;
+    z-index: 1222;
+    @include flex(column,center,center);
+}
