@@ -2,7 +2,6 @@ import "./../../styles/signup.scss";
 
 import {useState} from 'react'
 import api from './../../api';
-import axios from 'axios';
 import Logo from './../Logo';
 import {Link,useNavigate} from 'react-router-dom';
 import Loading from './../../assets/loading.gif';
@@ -30,8 +29,8 @@ export default function Signup() {
       setError("");
       navigate("/login");
     }).catch((error)=>{
-      console.log(error)
-       setError(error?.response?.data?.error?.message)
+      // console.log(error)
+       setError(error?.response?.data?.message)
         
     }).then(()=>{
       setIsLoad(false);
