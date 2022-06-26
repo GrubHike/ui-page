@@ -30,10 +30,13 @@ img.img{
         .header-bar{
             box-sizing: border-box;
             // border-bottom: 0.5px solid rgba(128, 128, 128, 0.288);
-            @include dim(100%,50px);
+            @include dim(100%,auto);
             @include flex(row,center,space-between);
             padding:10px;
             background-color: white;
+            .header-bar-left{
+                
+            }
             .header-bar-right{
                 @include flex(row,center,none);
                 gap:10px;
@@ -47,6 +50,11 @@ img.img{
                         opacity:0.8;
                     }
                 }
+
+              
+            }
+            @media screen and (max-width:400px) {
+                @include flex(column,flex-start,none);
             }
         }
 
@@ -179,7 +187,11 @@ img.img{
             }
         }
 
-        @media screen and (max-width:399px) {
+        @media screen and (max-width:400px) {
+            h4{
+                width:100%;
+                display:none;
+            }
             .features{
                 @include flex(column,center,center);
             }
