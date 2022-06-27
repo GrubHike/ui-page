@@ -42,9 +42,24 @@ export default function HostProfile() {
   // Form Data Ends
 
   useEffect(()=>{
-    
+    if(user?.userData){
+      const x=user?.userData?.data?.data;
+
+      setAddress(x?.address?.main);
+      setDesc(x?.desc);
+      setCity(x?.cityOrVillage);
+      setState(x?.state);
+      setHobbies(x?.hobbies)
+
+      setFacebook(x?.socialHandles?.facebook);
+      setInsta(x?.socialHandles?.instagram);
+      setTwitter(x?.socialHandles?.twitter);
+      setWebsite(x?.socialHandles?.website)
+    }
+
+
+
     const imgUrl=user?.userData?.imgDataUrl;
-    console.log(user)
     if(imgUrl){
       setSource(imgUrl);
     }

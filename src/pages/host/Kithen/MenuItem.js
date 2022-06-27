@@ -15,7 +15,10 @@ export default function MenuItem({details}) {
 
 
   useEffect(()=>{
-    setCid(details?._id);
+    if(details){
+      setCid(details?._id);
+
+    }
   },[details?._id])
 
   

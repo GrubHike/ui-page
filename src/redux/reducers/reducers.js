@@ -18,7 +18,7 @@ const appReducer=combineReducers({
 
   
 const reducers = (state, action) => {
-  console.log("CALLED",state,action.type)
+  // console.log("CALLED",state,action.type)
     if (action.type ==="LOG_OUT") {
       setTimeout(() => {
         window.location.href="/";

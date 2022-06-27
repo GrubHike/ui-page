@@ -10,6 +10,8 @@ import Loading from './../../assets/loading.gif';
 
 export default function Login() {
   const [email,setEmail]=useState("");
+  const [username,setUsername]=useState("");
+
   const [password,setPassword]=useState("");
   const [userType,setUserType]=useState("guest");
   
@@ -29,7 +31,7 @@ export default function Login() {
     }
     else{
       data={
-        "userName":email?email.split("@")[0]:"",
+        "userName":username,
         "password":password,
       }
     }
@@ -66,9 +68,7 @@ export default function Login() {
           <p className="quotes">
             Thank you for comming back on grubhike,lets access our services for free of coast.
           </p>
-          <input type="email" className="field"  placeholder="Email here" onChange={(e)=>setEmail(e.target.value)}></input>
-          <input type="password" className="field" placeholder="Password here" onChange={(e)=>setPassword(e.target.value)}></input>
-          
+
           <p className="dont">Choose your user preference</p>
           <div className="radios">
             <span>
@@ -81,6 +81,17 @@ export default function Login() {
               <input type="radio" value="host" onChange={(e)=>setUserType(e.target.value)} id="host" name="typeUser"></input>
             </span>
           </div>
+
+
+          {
+            userType==="host"?
+            <input type="text" className="field"  placeholder="Username here" onChange={(e)=>setUsername(e.target.value)}></input>
+            :
+            <input type="email" className="field"  placeholder="Email here" onChange={(e)=>setEmail(e.target.value)}></input>
+          }
+          <input type="password" className="field" placeholder="Password here" onChange={(e)=>setPassword(e.target.value)}></input>
+          
+
 
           <button type="submit" className="field btn">Login</button>
           <p className="dont">Don't have an account?<Link to="/signup"> Sign Up</Link></p>

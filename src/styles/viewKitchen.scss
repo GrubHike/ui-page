@@ -108,6 +108,7 @@
         .btmImgs{
             @include dim(100%,auto);
             @include flex(row,center,space-between);
+            gap: 5px;
             .leftImg,.rightImg{
                 @extend .imgBack;
                 @include dim(49%,230px);

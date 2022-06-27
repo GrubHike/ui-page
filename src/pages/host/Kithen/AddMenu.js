@@ -37,6 +37,8 @@ export default function AddMenu() {
   },[menu]);
 
 
+
+
   useEffect(()=>{
 
     window.addEventListener("click",(e)=>{
@@ -66,7 +68,7 @@ export default function AddMenu() {
       <p className="highLight">Create, Edit or Add Menu</p>
       <h2>
          Add Menu in Kitchen 
-        <button onClick={()=>setShowModal(true)}>+</button>
+        <button onClick={()=>setShowModal(true)}  >+</button>
       </h2>
       {
         showModal?
@@ -83,7 +85,7 @@ export default function AddMenu() {
       </h2>
       
       <div className="menus">
-
+      
       {
         isLoad?
         <div className="imgLoader">

@@ -15,6 +15,7 @@ export default function Signup() {
   const [phoneNum,setPhoneNum]=useState("");
   const [gender,setGender]=useState("male");
   const [userType,setUserType]=useState("guest");
+  const [username,setUsername]=useState("");
 
 
   const [error,setError]=useState(null);
@@ -25,13 +26,13 @@ export default function Signup() {
     setIsLoad(true)
     api.defaults.timeout=0;
     api(config).then((response)=>{
-      console.log(response)
+      // console.log(response)
       setError("");
       navigate("/login");
     }).catch((error)=>{
       // console.log(error)
        setError(error?.response?.data?.message)
-        
+
     }).then(()=>{
       setIsLoad(false);
     });
@@ -64,11 +65,11 @@ export default function Signup() {
     }
 
     if(userType==="host"){
-      Object.assign(data,{"userName":email.split("@")[0]})
+      Object.assign(data,{"userName":username})
     }
 
     Object.assign(config,{"data":JSON.stringify(data)});
-    
+    // console.log(config)
     
     callApi(config);
   
@@ -83,9 +84,33 @@ export default function Signup() {
             <h3>Sign Up </h3>
             <h5>Sign Up to Your Account</h5>
             <p className="quotes">We always welcome new user in our website.We are thankfull for you to sign up here</p>
+            <p className="dont">Choose your user preference</p>
+              <div className="radios">
+                <span>
+                  <label htmlFor="guest">Guest</label>
+                  <input type="radio" checked={userType==="guest"?true:false} value="guest" onChange={(e)=>setUserType(e.target.value)} id="guest" name="typeUser"></input>
+                </span>
+
+                <span>
+                  <label htmlFor="host">Host</label>
+                  <input type="radio" value="host" onChange={(e)=>setUserType(e.target.value)} id="host" name="typeUser"></input>
+                </span>
+            </div>
+        
             <input type="text" className="field" value={firstName}  placeholder="First name here" onChange={(e)=>setFirstName(e.target.value)}></input>
             <input type="text" className="field" value={lastName} placeholder="Last name here" onChange={(e)=>setLastName(e.target.value)}></input>
+         
+
+
+            {
+              userType==="host"?
+              <input type="text" className="field" value={username} placeholder="Username here" onChange={(e)=>setUsername(e.target.value)}></input>
+                :
+                <></>
+
+            }
             <input type="email" className="field" value={email} placeholder="Email here" onChange={(e)=>setEmail(e.target.value)}></input>
+
             <input type="password" className="field" value={password} placeholder="Password here" onChange={(e)=>setPassword(e.target.value)}></input>
             <input type="date" className="field" value={dob} onChange={(e)=>setDob(e.target.value)}></input>
             <input type="number" className="field" value={phoneNum} placeholder="Phone number here" onChange={(e)=>setPhoneNum(e.target.value)}></input>
@@ -107,19 +132,6 @@ export default function Signup() {
                 </span>
               </div>
 
-
-              <p className="dont">Choose your user preference</p>
-              <div className="radios">
-                <span>
-                  <label htmlFor="guest">Guest</label>
-                  <input type="radio" checked={userType==="guest"?true:false} value="guest" onChange={(e)=>setUserType(e.target.value)} id="guest" name="typeUser"></input>
-                </span>
-
-                <span>
-                  <label htmlFor="host">Host</label>
-                  <input type="radio" value="host" onChange={(e)=>setUserType(e.target.value)} id="host" name="typeUser"></input>
-                </span>
-              </div>
 
               <button type="submit" className="field btn">Sign Up</button>
               <p className="dont">Already have an account?<Link to="/login"> Login </Link></p>

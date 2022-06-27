@@ -15,7 +15,7 @@ api.interceptors.request.use(function (config) {
     if(config.url.includes("guest")){
       Object.assign(config,{"baseURL":`http://${process.env.REACT_APP_IP}:3000/`})
     }
-    if(config.url.includes("host")||config.url.includes("kitchen")){
+    if(config.url.includes("host")||config.url.includes("kitchen")||config.url.includes("menueCard")){
       Object.assign(config,{"baseURL":`http://${process.env.REACT_APP_IP}:8000/`})
     }
     

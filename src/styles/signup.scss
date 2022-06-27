@@ -2,7 +2,7 @@
 
 .signup{
     overflow:hidden;
-    @include dim(100%,130vh);
+    @include dim(100%,135vh);
     @include flex(row,center,space-between);
 
     .signup-left{

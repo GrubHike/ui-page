@@ -72,7 +72,7 @@ export default function ViewKitchen() {
       fetchAllImages(pics?.[i]?.fileKey,i);
     }
    
-  },[kitchen]);
+  },[]);
 
   return (
     <div className="viewKitchen">

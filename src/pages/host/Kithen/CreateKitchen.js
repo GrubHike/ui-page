@@ -33,6 +33,7 @@ export default function CreateKitchen() {
   const dispatch=useDispatch();
   const {kitchen}=useSelector((state)=>state);
   useEffect(()=>{
+    // console.log("Called********")
     if(kitchen?.kitchen_error){
         setError(kitchen?.kitchen_error)
     }
