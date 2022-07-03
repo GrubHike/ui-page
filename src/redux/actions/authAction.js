@@ -18,7 +18,7 @@ export const log_in=(userType,config)=>{
             window.location.href="/";
         }
         catch(error){
-            // console.log(error);
+            console.log(error);
             if(error?.code==="ERR_NETWORK"){
                 dispatch({type:ERROR,payload:error?.response?.data})
             }

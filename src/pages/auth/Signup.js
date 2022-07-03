@@ -1,5 +1,5 @@
 import "./../../styles/signup.scss";
-
+import validator from 'validator'
 import {useState} from 'react'
 import api from './../../api';
 import Logo from './../Logo';
@@ -26,12 +26,20 @@ export default function Signup() {
     setIsLoad(true)
     api.defaults.timeout=0;
     api(config).then((response)=>{
-      // console.log(response)
       setError("");
       navigate("/login");
     }).catch((error)=>{
-      // console.log(error)
-       setError(error?.response?.data?.message)
+
+      //  console.log(error);
+       if(error?.response?.data?.error){
+        setError(error?.response?.data?.error);
+       }
+       if(error?.response?.data?.message){
+        setError(error?.response?.data?.message);
+       }
+       if(error?.response?.data?.error?.message){
+        setError(error?.response?.data?.error?.message);
+       }
 
     }).then(()=>{
       setIsLoad(false);
@@ -54,24 +62,26 @@ export default function Signup() {
         'Content-Type': 'application/json'
       },
     }
-    const data={
-      "email":email,
-      "password":password,
-      "firstName":firstName?firstName[0].toUpperCase()+firstName.slice(1):"",
-      "lastName":lastName?lastName[0].toUpperCase()+lastName.slice(1):"",
-      "phoneNum":phoneNum,
-      "dob":`${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`,
-      "gender":gender,
-    }
 
-    if(userType==="host"){
-      Object.assign(data,{"userName":username})
+    if (validator.isEmail(email)) {
+      const data={
+        "email":email,
+        "password":password,
+        "firstName":firstName?firstName[0].toUpperCase()+firstName.slice(1):"",
+        "lastName":lastName?lastName[0].toUpperCase()+lastName.slice(1):"",
+        "phoneNum":phoneNum,
+        "dob":`${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`,
+        "gender":gender,
+      }
+      if(userType==="host"){
+        Object.assign(data,{"userName":username})
+      }
+      Object.assign(config,{"data":JSON.stringify(data)});
+      callApi(config);
     }
-
-    Object.assign(config,{"data":JSON.stringify(data)});
-    // console.log(config)
-    
-    callApi(config);
+    else {
+      setError('Enter valid Email!')
+    }
   
   }
   return (

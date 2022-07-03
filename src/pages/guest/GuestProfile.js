@@ -42,22 +42,38 @@ export default function GuestProfile() {
     console.log(Math.round((progress?.payload?.value)*100/(progress?.payload?.total)))
   },[progress])
 
-
-  // Form Data Ends
-
+  
   useEffect(()=>{
+    if(user?.userData){
+      const x=user?.userData?.data?.data;
+
+      setAddress(x?.address?.main);
+      setDesc(x?.desc);
+
+      setHobbies(x?.hobbies)
+
+      setFacebook(x?.socialHandles?.facebook);
+      setInsta(x?.socialHandles?.instagram);
+      setTwitter(x?.socialHandles?.twitter);
+      setWebsite(x?.socialHandles?.website)
+    }
+
+
+
     const imgUrl=user?.userData?.imgDataUrl;
-    // console.log(user)
     if(imgUrl){
       setSource(imgUrl);
     }
+
     if(user?.error){
+
       setError(user?.error);
       showErrorToast(user?.error);
     }
     setIsLoad(false);
   },[user])
-  
+
+
   const updateProfile=(e)=>{
     setIsLoad(true);
     e.preventDefault();
@@ -106,6 +122,12 @@ export default function GuestProfile() {
     }
   }
 
+  useEffect(()=>{
+    if(image){
+      updateImage()
+    }
+  },[image])
+
   return (
     <div className="guestProfile">
 
@@ -115,7 +137,6 @@ export default function GuestProfile() {
             <input ref={fileUpload} type="file" accept="images/*" onChange={(e)=>{setImage(e.target.files[0])}} hidden ></input>
             <button className="addPicBtn"  onClick={()=>fileUpload.current.click()}>+</button>            
           </div>
-          <button className="updatePicBtn" onClick={()=>updateImage()}>Update Profile Pic</button>
 
           <h2 className="userName">{user?.userData?.data?.data?.firstName} {user?.userData?.data?.data?.lastName}</h2>
           <small>DESCRIPTION</small>

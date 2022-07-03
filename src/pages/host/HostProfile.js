@@ -120,6 +120,12 @@ export default function HostProfile() {
     }
   }
 
+  useEffect(()=>{
+    if(image){
+      updateImage()
+    }
+  },[image])
+
   return (
     <div className="hostProfile">
 
@@ -129,7 +135,6 @@ export default function HostProfile() {
             <input ref={fileUpload} type="file" accept="images/*" onChange={(e)=>{setImage(e.target.files[0])}} hidden ></input>
             <button className="addPicBtn"  onClick={()=>fileUpload.current.click()}>+</button>            
           </div>
-          <button className="updatePicBtn" onClick={()=>updateImage()}>Update Profile Pic</button>
 
           <h2 className="userName">{user?.userData?.data?.data?.firstName} {user?.userData?.data?.data?.lastName}</h2>
           <small>DESCRIPTION</small>
